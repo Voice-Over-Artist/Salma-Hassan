@@ -1,0 +1,32 @@
+# Reference project (not part of this site)
+Noha-Younis-Portfolio/
+
+# Source/reference material (not linked from live site)
+Colors/
+information/
+Videos/
+Photos/photos description/
+
+# Unused photo sessions and individual photos
+Photos/Photo session 2022/
+Photos/Photo session 2021/Salma 2021 (3).jpg
+Photos/Photo session 2021/Salma 2021 (4).jpg
+Photos/Photo session 2021/Salma 2021 (5).jpg
+Photos/Photo session 2021/Salma 2021 (6).jpg
+
+# Unused logo variants
+Photos/Logos/Salma hassam Page Cover.jpg
+Photos/Logos/Salma Hassan logo transparent png.png
+Photos/Logos/Salma Hassan logo transparent white font png.png
+Photos/Logos/Salma Hassan Logo White Background.jpg
+
+# Replaced partner logo
+Photos/Partners Logos/qatar airway logo.webp
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.vscode/
