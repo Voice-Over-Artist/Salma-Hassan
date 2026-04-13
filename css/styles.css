@@ -37,7 +37,11 @@
 
 /* Reset */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 95px;
+}
+section[id] { scroll-margin-top: 95px; }
 
 body {
     font-family: var(--font-body);
@@ -1389,8 +1393,9 @@ img { max-width: 100%; height: auto; display: block; }
    =================================== */
 .animate-on-scroll {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    will-change: transform, opacity;
 }
 
 .animate-on-scroll.animate-in {

@@ -3,12 +3,12 @@ document.addEventListener('DOMContentLoaded', function () {
     initNavbar();
     initMobileMenu();
     initAudioPlayers();
-    initSmoothScroll();
     initScrollAnimations();
     initContactForm();
     initKnowMore();
     initVideoCarousel();
     initTestimonialCarousel();
+    initParallax();
     checkFormSuccess();
 });
 
@@ -27,7 +27,7 @@ function initTopBar() {
             topBar.classList.remove('hidden');
         }
         lastScroll = curr;
-    });
+    }, { passive: true });
 }
 
 /* ===================================
@@ -36,6 +36,8 @@ function initTopBar() {
 function initNavbar() {
     var navbar = document.getElementById('navbar');
     var navLinks = document.querySelectorAll('.nav-link');
+    var sections = document.querySelectorAll('section[id]');
+    var activeId = '';
 
     window.addEventListener('scroll', function () {
         if (window.scrollY > 50) {
@@ -43,26 +45,32 @@ function initNavbar() {
         } else {
             navbar.classList.remove('scrolled');
         }
-        updateActiveNavLink(navLinks);
-    });
+        activeId = updateActiveNavLink(navLinks, sections, activeId);
+    }, { passive: true });
 }
 
-function updateActiveNavLink(navLinks) {
-    var sections = document.querySelectorAll('section[id]');
+function updateActiveNavLink(navLinks, sections, currentActiveId) {
     var scrollPos = window.scrollY + 120;
+    var activeSectionId = '';
+
     sections.forEach(function (section) {
         var top = section.offsetTop;
         var height = section.offsetHeight;
         var id = section.getAttribute('id');
         if (scrollPos >= top && scrollPos < top + height) {
-            navLinks.forEach(function (link) {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + id) {
-                    link.classList.add('active');
-                }
-            });
+            activeSectionId = id;
         }
     });
+
+    if (!activeSectionId || activeSectionId === currentActiveId) {
+        return currentActiveId;
+    }
+
+    navLinks.forEach(function (link) {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + activeSectionId);
+    });
+
+    return activeSectionId;
 }
 
 /* ===================================
@@ -160,23 +168,6 @@ function formatTime(seconds) {
     var mins = Math.floor(seconds / 60);
     var secs = Math.floor(seconds % 60);
     return mins + ':' + (secs < 10 ? '0' : '') + secs;
-}
-
-/* ===================================
-   Smooth Scroll
-   =================================== */
-function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            var target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                var offset = 80;
-                var pos = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                window.scrollTo({ top: pos, behavior: 'smooth' });
-            }
-        });
-    });
 }
 
 /* ===================================
@@ -364,8 +355,17 @@ function initScrollAnimations() {
         });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.animate-on-scroll').forEach(function (el, i) {
-        el.style.transitionDelay = (i * 0.08) + 's';
+    // Stagger delays *within* each section (prevents huge delays on later sections).
+    var sectionCounts = new Map();
+    var stepDelay = 0.04;     // 40ms
+    var maxDelay = 0.16;      // cap at 160ms
+
+    document.querySelectorAll('.animate-on-scroll').forEach(function (el) {
+        var section = el.closest('section') || document.body;
+        var idx = sectionCounts.get(section) || 0;
+        var delay = Math.min(idx * stepDelay, maxDelay);
+        el.style.transitionDelay = delay + 's';
+        sectionCounts.set(section, idx + 1);
         observer.observe(el);
     });
 }
@@ -469,11 +469,22 @@ function showNotification(message, type) {
 /* ===================================
    Parallax
    =================================== */
-window.addEventListener('scroll', function () {
-    if (window.innerWidth <= 1024) return;
-    var scrolled = window.pageYOffset;
+function initParallax() {
     var heroVisual = document.querySelector('.hero-visual');
-    if (heroVisual && scrolled < window.innerHeight) {
-        heroVisual.style.transform = 'translateY(' + scrolled * 0.15 + 'px)';
-    }
-});
+    if (!heroVisual) return;
+
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+        if (window.innerWidth <= 1024) return;
+        if (ticking) return;
+
+        ticking = true;
+        window.requestAnimationFrame(function () {
+            var scrolled = window.pageYOffset;
+            if (scrolled < window.innerHeight) {
+                heroVisual.style.transform = 'translateY(' + scrolled * 0.15 + 'px)';
+            }
+            ticking = false;
+        });
+    }, { passive: true });
+}
