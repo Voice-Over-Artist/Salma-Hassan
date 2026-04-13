@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initMobileMenu();
     initAudioPlayers();
     initScrollAnimations();
+    initPartnersMarquee();
     initContactForm();
     initKnowMore();
     initVideoCarousel();
@@ -340,6 +341,73 @@ function initTestimonialCarousel() {
 
     buildDots();
     resetAuto();
+}
+
+/* ===================================
+   Partners Marquee (De-sync rows)
+   =================================== */
+function initPartnersMarquee() {
+    var reverseTrack = document.querySelector('.partners-track.partners-track-reverse');
+    if (!reverseTrack) return;
+
+    var allLogos = Array.from(reverseTrack.querySelectorAll('img.partner-logo'));
+    if (allLogos.length < 2) return;
+
+    reverseTrack.style.animationPlayState = 'paused';
+
+    var base = getMarqueeBaseSet(allLogos);
+    shuffleInPlace(base);
+
+    reverseTrack.innerHTML = '';
+    base.forEach(function (el) { reverseTrack.appendChild(el); });
+    base.forEach(function (el) { reverseTrack.appendChild(el.cloneNode(true)); });
+
+    // Randomize starting point so the two rows don't show same logos together.
+    var computed = window.getComputedStyle(reverseTrack);
+    var duration = parseFloat(computed.animationDuration);
+    if (!isNaN(duration) && duration > 0) {
+        reverseTrack.style.animationDelay = (-Math.random() * duration).toFixed(2) + 's';
+    }
+
+    reverseTrack.offsetHeight; // force reflow
+    reverseTrack.style.animationPlayState = '';
+}
+
+function getMarqueeBaseSet(logos) {
+    if (logos.length % 2 === 0 && isExactDuplicateHalves(logos)) {
+        return logos.slice(0, logos.length / 2);
+    }
+
+    // Fallback: build a unique set by src.
+    var seen = new Set();
+    var base = [];
+    logos.forEach(function (img) {
+        var src = img.getAttribute('src') || '';
+        if (!seen.has(src)) {
+            seen.add(src);
+            base.push(img);
+        }
+    });
+    return base.length ? base : logos.slice();
+}
+
+function isExactDuplicateHalves(logos) {
+    var half = logos.length / 2;
+    for (var i = 0; i < half; i++) {
+        if ((logos[i].getAttribute('src') || '') !== (logos[i + half].getAttribute('src') || '')) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function shuffleInPlace(arr) {
+    for (var i = arr.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+    }
 }
 
 /* ===================================
