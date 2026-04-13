@@ -365,7 +365,7 @@ function initScrollAnimations() {
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.animate-on-scroll').forEach(function (el, i) {
-        el.style.transitionDelay = (i % 8) * 0.08 + 's';
+        el.style.transitionDelay = (i * 0.08) + 's';
         observer.observe(el);
     });
 }
