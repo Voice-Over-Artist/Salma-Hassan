@@ -76,14 +76,12 @@ function initMobileMenu() {
     menuBtn.addEventListener('click', function () {
         navLinks.classList.toggle('active');
         menuBtn.classList.toggle('active');
-        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
     });
 
     navLinks.querySelectorAll('.nav-link').forEach(function (link) {
         link.addEventListener('click', function () {
             navLinks.classList.remove('active');
             menuBtn.classList.remove('active');
-            document.body.style.overflow = '';
         });
     });
 }
@@ -472,6 +470,7 @@ function showNotification(message, type) {
    Parallax
    =================================== */
 window.addEventListener('scroll', function () {
+    if (window.innerWidth <= 1024) return;
     var scrolled = window.pageYOffset;
     var heroVisual = document.querySelector('.hero-visual');
     if (heroVisual && scrolled < window.innerHeight) {

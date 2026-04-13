@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
@@ -40,10 +40,10 @@
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#demos" class="nav-link">Demos</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#studio" class="nav-link">Studio</a></li>
                 <li><a href="#partners" class="nav-link">Partners</a></li>
                 <li><a href="#videos" class="nav-link">Videos</a></li>
                 <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li><a href="#studio" class="nav-link">Studio</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="nav-right">
@@ -168,9 +168,9 @@
                 <div class="demo-card animate-on-scroll">
                     <div class="demo-card-header">
                         <div class="demo-icon"><i class="fas fa-graduation-cap"></i></div>
-                        <h3>E-Learning</h3>
+                        <h3>Educational Learning</h3>
                     </div>
-                    <span class="demo-tag">E-Learning</span>
+                    <span class="demo-tag">Educational</span>
                     <div class="audio-player" data-src="Audios/e.learning%20panda.mp3">
                         <button class="play-btn" aria-label="Play"><i class="fas fa-play"></i></button>
                         <div class="progress-container"><div class="progress-bar"></div></div>
@@ -200,6 +200,20 @@
                     </div>
                     <span class="demo-tag">IVR</span>
                     <div class="audio-player" data-src="Audios/ivr%20next%20care.mp3">
+                        <button class="play-btn" aria-label="Play"><i class="fas fa-play"></i></button>
+                        <div class="progress-container"><div class="progress-bar"></div></div>
+                        <span class="duration">0:00</span>
+                    </div>
+                </div>
+
+                <!-- Documentary -->
+                <div class="demo-card animate-on-scroll">
+                    <div class="demo-card-header">
+                        <div class="demo-icon"><i class="fas fa-film"></i></div>
+                        <h3>Documentary</h3>
+                    </div>
+                    <span class="demo-tag">Documentary</span>
+                    <div class="audio-player" data-src="Audios/Documentary.mp3">
                         <button class="play-btn" aria-label="Play"><i class="fas fa-play"></i></button>
                         <div class="progress-container"><div class="progress-bar"></div></div>
                         <span class="duration">0:00</span>
@@ -263,47 +277,6 @@
         </div>
     </section>
 
-    <!-- Studio Section -->
-    <svg class="wave-divider" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C360,80 720,0 1440,40 L1440,60 L0,60 Z" fill="#0A8B78"/></svg>
-    <section class="studio" id="studio">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Recording Setup</span>
-                <h2 class="section-title">Professional Studio</h2>
-                <div class="section-title-underline"><span class="line" style="background:var(--white)"></span><span class="dot"></span><span class="line" style="background:var(--white)"></span></div>
-                <p class="section-description">Equipped with professional gear for crystal-clear, broadcast-quality recordings.</p>
-            </div>
-            <div class="studio-grid">
-                <div class="studio-card animate-on-scroll">
-                    <div class="studio-card-icon"><i class="fas fa-microphone-alt"></i></div>
-                    <h4>Microphone</h4>
-                    <p>Rode NT USB Condenser</p>
-                </div>
-                <div class="studio-card animate-on-scroll">
-                    <div class="studio-card-icon"><i class="fas fa-laptop"></i></div>
-                    <h4>Computer</h4>
-                    <p>Asus VivoBook Go 15</p>
-                </div>
-                <div class="studio-card animate-on-scroll">
-                    <div class="studio-card-icon"><i class="fas fa-headphones-alt"></i></div>
-                    <h4>Headphones</h4>
-                    <p>Sennheiser</p>
-                </div>
-                <div class="studio-card animate-on-scroll">
-                    <div class="studio-card-icon"><i class="fas fa-sliders-h"></i></div>
-                    <h4>DAW</h4>
-                    <p>Audacity</p>
-                </div>
-                <div class="studio-card animate-on-scroll">
-                    <div class="studio-card-icon"><i class="fas fa-video"></i></div>
-                    <h4>Live Sessions</h4>
-                    <p>Zoom, Google Meet, Skype</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <svg class="wave-divider wave-divider-bottom" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,0 L1440,0 L1440,20 C720,60 360,-20 0,20 Z" fill="#0A8B78"/></svg>
-
     <!-- Partners Section -->
     <section class="partners" id="partners">
         <div class="container">
@@ -331,6 +304,9 @@
                 <img src="Photos/Partners%20Logos/frida.png" alt="Frida" class="partner-logo">
                 <img src="Photos/Partners%20Logos/noory-books-promo-code-logo-png-new.png" alt="Noory Books" class="partner-logo">
                 <img src="Photos/Partners%20Logos/abgad.jpg" alt="ABGAD" class="partner-logo">
+                <img src="Photos/Partners%20Logos/Alburouj.jpeg" alt="Al Burouj" class="partner-logo">
+                <img src="Photos/Partners%20Logos/Aliaa.png" alt="Aliaa" class="partner-logo">
+                <img src="Photos/Partners%20Logos/Arabcast.png" alt="Arabcast" class="partner-logo">
                 <!-- Duplicate for seamless loop -->
                 <img src="Photos/Partners%20Logos/google.png" alt="Google" class="partner-logo">
                 <img src="Photos/Partners%20Logos/al-jazeera-documentary-logo.png" alt="Al Jazeera" class="partner-logo">
@@ -348,10 +324,16 @@
                 <img src="Photos/Partners%20Logos/frida.png" alt="Frida" class="partner-logo">
                 <img src="Photos/Partners%20Logos/noory-books-promo-code-logo-png-new.png" alt="Noory Books" class="partner-logo">
                 <img src="Photos/Partners%20Logos/abgad.jpg" alt="ABGAD" class="partner-logo">
+                <img src="Photos/Partners%20Logos/Alburouj.jpeg" alt="Al Burouj" class="partner-logo">
+                <img src="Photos/Partners%20Logos/Aliaa.png" alt="Aliaa" class="partner-logo">
+                <img src="Photos/Partners%20Logos/Arabcast.png" alt="Arabcast" class="partner-logo">
             </div>
         </div>
         <div class="partners-track-wrapper" style="margin-top:25px;">
             <div class="partners-track partners-track-reverse">
+                <img src="Photos/Partners%20Logos/Arabcast.png" alt="Arabcast" class="partner-logo">
+                <img src="Photos/Partners%20Logos/Aliaa.png" alt="Aliaa" class="partner-logo">
+                <img src="Photos/Partners%20Logos/Alburouj.jpeg" alt="Al Burouj" class="partner-logo">
                 <img src="Photos/Partners%20Logos/abgad.jpg" alt="ABGAD" class="partner-logo">
                 <img src="Photos/Partners%20Logos/noory-books-promo-code-logo-png-new.png" alt="Noory Books" class="partner-logo">
                 <img src="Photos/Partners%20Logos/frida.png" alt="Frida" class="partner-logo">
@@ -369,6 +351,9 @@
                 <img src="Photos/Partners%20Logos/al-jazeera-documentary-logo.png" alt="Al Jazeera" class="partner-logo">
                 <img src="Photos/Partners%20Logos/google.png" alt="Google" class="partner-logo">
                 <!-- Duplicate -->
+                <img src="Photos/Partners%20Logos/Arabcast.png" alt="Arabcast" class="partner-logo">
+                <img src="Photos/Partners%20Logos/Aliaa.png" alt="Aliaa" class="partner-logo">
+                <img src="Photos/Partners%20Logos/Alburouj.jpeg" alt="Al Burouj" class="partner-logo">
                 <img src="Photos/Partners%20Logos/abgad.jpg" alt="ABGAD" class="partner-logo">
                 <img src="Photos/Partners%20Logos/noory-books-promo-code-logo-png-new.png" alt="Noory Books" class="partner-logo">
                 <img src="Photos/Partners%20Logos/frida.png" alt="Frida" class="partner-logo">
@@ -401,28 +386,36 @@
             <div class="video-carousel">
                 <div class="video-carousel-track">
                     <div class="video-slide">
-                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/cQh5ohNwj5c" title="Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/AIhhcnn_bWg" title="Qatar Airways Ad" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        <p class="video-title">Qatar Airways Ad</p>
                     </div>
                     <div class="video-slide">
-                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/RnYe7wDSRT8" title="Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/2ky1parJb24" title="Al Jazeera Documentary" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        <p class="video-title">Al Jazeera Documentary</p>
                     </div>
                     <div class="video-slide">
-                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/LnxhtP_gicE" title="Video 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/jszeJOA5jzE" title="Egypt Healthcare Ad" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        <p class="video-title">Egypt Healthcare Ad</p>
                     </div>
                     <div class="video-slide">
-                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/fHi3tqgeS50" title="Video 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/BLI_-acqqZc" title="Saudi German Hospital Ad" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        <p class="video-title">Saudi German Hospital Ad</p>
                     </div>
                     <div class="video-slide">
-                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/qW2D7AGfSBA" title="Video 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/0G9-hmQoW1c" title="Frida Ad" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        <p class="video-title">Frida Ad</p>
                     </div>
                     <div class="video-slide">
-                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/nqVNiq1skRY" title="Video 6" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/zfyzoABon4I" title="CEMEX Ad" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        <p class="video-title">CEMEX Ad</p>
                     </div>
                     <div class="video-slide">
-                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/fU5U7n7X4Z8" title="Video 7" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/lE1j2lV2Thk" title="Bahia Org. Ad" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        <p class="video-title">Bahia Org. Ad</p>
                     </div>
                     <div class="video-slide">
-                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/Zt_AhHEYrjw" title="Video 8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/GdQX8XdrbKg" title="Noor in Tayebeen Village" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        <p class="video-title">Noor in Tayebeen Village</p>
                     </div>
                 </div>
                 <button class="carousel-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
@@ -464,6 +457,15 @@
                     <div class="testimonial-slide">
                         <div class="testimonial-card">
                             <span class="testimonial-quote">&ldquo;</span>
+                            <p class="testimonial-text">Working with Salma is a true luxury within reach. She recorded projects for us for the Hilton Hotels Business Program, and other well known brands, and her level of professionalism and commitment has been excellent. Her performances are always fast, flawless, and of high vocal and technical quality. Working with Salma is synonymous with success!</p>
+                            <div class="testimonial-divider"></div>
+                            <p class="testimonial-author">Dani Carrasco</p>
+                            <p class="testimonial-role">CEO at DVO</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <span class="testimonial-quote">&ldquo;</span>
                             <p class="testimonial-text">We had a wonderful and special experience with the creative narrator Salma Hassan. Salma is distinguished by professional and high service, splendid performance, the beauty of voice and quality, the ability to change voices, and interesting interaction with texts.</p>
                             <div class="testimonial-divider"></div>
                             <p class="testimonial-author">Abbas Abbas</p>
@@ -497,6 +499,47 @@
             </div>
         </div>
     </section>
+
+    <!-- Studio Section -->
+    <svg class="wave-divider" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C360,80 720,0 1440,40 L1440,60 L0,60 Z" fill="#0A8B78"/></svg>
+    <section class="studio" id="studio">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Recording Setup</span>
+                <h2 class="section-title">Professional Studio</h2>
+                <div class="section-title-underline"><span class="line" style="background:var(--white)"></span><span class="dot"></span><span class="line" style="background:var(--white)"></span></div>
+                <p class="section-description">Equipped with professional gear for crystal-clear, broadcast-quality recordings.</p>
+            </div>
+            <div class="studio-grid">
+                <div class="studio-card animate-on-scroll">
+                    <div class="studio-card-icon"><i class="fas fa-microphone-alt"></i></div>
+                    <h4>Microphone</h4>
+                    <p>Rode NT USB Condenser</p>
+                </div>
+                <div class="studio-card animate-on-scroll">
+                    <div class="studio-card-icon"><i class="fas fa-laptop"></i></div>
+                    <h4>Computer</h4>
+                    <p>Asus VivoBook Go 15</p>
+                </div>
+                <div class="studio-card animate-on-scroll">
+                    <div class="studio-card-icon"><i class="fas fa-headphones-alt"></i></div>
+                    <h4>Headphones</h4>
+                    <p>Sennheiser</p>
+                </div>
+                <div class="studio-card animate-on-scroll">
+                    <div class="studio-card-icon"><i class="fas fa-sliders-h"></i></div>
+                    <h4>DAW</h4>
+                    <p>Audacity</p>
+                </div>
+                <div class="studio-card animate-on-scroll">
+                    <div class="studio-card-icon"><i class="fas fa-video"></i></div>
+                    <h4>Live Sessions</h4>
+                    <p>Zoom, Google Meet, Skype</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <svg class="wave-divider wave-divider-bottom" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,0 L1440,0 L1440,20 C720,60 360,-20 0,20 Z" fill="#0A8B78"/></svg>
 
     <!-- Contact Section -->
     <svg class="wave-divider" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C360,80 720,0 1440,40 L1440,60 L0,60 Z" fill="#0A8B78"/></svg>
@@ -588,10 +631,10 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#demos">Demos</a></li>
                         <li><a href="#about">About</a></li>
-                        <li><a href="#studio">Studio</a></li>
                         <li><a href="#partners">Partners</a></li>
                         <li><a href="#videos">Videos</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#studio">Studio</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
