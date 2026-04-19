@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initTopBar();
     initNavbar();
     initMobileMenu();
+    initSmoothScroll();
     initAudioPlayers();
     initScrollAnimations();
     initPartnersMarquee();
@@ -91,6 +92,30 @@ function initMobileMenu() {
         link.addEventListener('click', function () {
             navLinks.classList.remove('active');
             menuBtn.classList.remove('active');
+        });
+    });
+}
+
+/* ===================================
+   Smooth Scroll with Dynamic Offset
+   =================================== */
+function initSmoothScroll() {
+    var allLinks = document.querySelectorAll('a[href^="#"]');
+    allLinks.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            var targetId = this.getAttribute('href');
+            if (!targetId || targetId === '#') return;
+            var target = document.querySelector(targetId);
+            if (!target) return;
+
+            e.preventDefault();
+
+            var navbar = document.getElementById('navbar');
+            var navHeight = navbar ? navbar.offsetHeight : 0;
+            var offset = navHeight + 15;
+            var targetPos = target.getBoundingClientRect().top + window.pageYOffset - offset;
+
+            window.scrollTo({ top: targetPos, behavior: 'smooth' });
         });
     });
 }
@@ -198,9 +223,9 @@ function initKnowMore() {
 function initVideoCarousel() {
     var track = document.querySelector('.video-carousel-track');
     var slides = document.querySelectorAll('.video-slide');
-    var prevBtn = document.querySelector('.video-carousel .carousel-arrow.prev');
-    var nextBtn = document.querySelector('.video-carousel .carousel-arrow.next');
-    var dotsContainer = document.querySelector('.video-carousel .carousel-dots');
+    var prevBtn = document.querySelector('.videos .video-nav .carousel-arrow.prev');
+    var nextBtn = document.querySelector('.videos .video-nav .carousel-arrow.next');
+    var dotsContainer = document.querySelector('.videos .video-nav .carousel-dots');
     if (!track || slides.length === 0) return;
 
     var currentIndex = 0;
