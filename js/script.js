@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
     initContactForm();
     initKnowMore();
     initVideoCarousel();
+    initVideoPauseOnPlay();
     initTestimonialCarousel();
-    initParallax();
     checkFormSuccess();
 });
 
@@ -307,6 +307,27 @@ function initVideoCarousel() {
 }
 
 /* ===================================
+   Video Pause on Play
+   =================================== */
+function initVideoPauseOnPlay() {
+    var wrappers = document.querySelectorAll('.video-wrapper');
+    wrappers.forEach(function (wrapper) {
+        wrapper.addEventListener('click', function () {
+            var clickedIframe = this.querySelector('iframe');
+            wrappers.forEach(function (other) {
+                var otherIframe = other.querySelector('iframe');
+                if (otherIframe && otherIframe !== clickedIframe) {
+                    otherIframe.contentWindow.postMessage(
+                        JSON.stringify({ event: 'command', func: 'pauseVideo', args: '' }),
+                        '*'
+                    );
+                }
+            });
+        });
+    });
+}
+
+/* ===================================
    Testimonial Carousel
    =================================== */
 function initTestimonialCarousel() {
@@ -559,25 +580,3 @@ function showNotification(message, type) {
     }, 5000);
 }
 
-/* ===================================
-   Parallax
-   =================================== */
-function initParallax() {
-    var heroVisual = document.querySelector('.hero-visual');
-    if (!heroVisual) return;
-
-    var ticking = false;
-    window.addEventListener('scroll', function () {
-        if (window.innerWidth <= 1024) return;
-        if (ticking) return;
-
-        ticking = true;
-        window.requestAnimationFrame(function () {
-            var scrolled = window.pageYOffset;
-            if (scrolled < window.innerHeight) {
-                heroVisual.style.transform = 'translateY(' + scrolled * 0.15 + 'px)';
-            }
-            ticking = false;
-        });
-    }, { passive: true });
-}

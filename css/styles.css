@@ -291,6 +291,10 @@ img { max-width: 100%; height: auto; display: block; }
     gap: 22px;
 }
 
+.nav-contact-mobile {
+    display: none;
+}
+
 .nav-link {
     color: var(--teal-dark);
     font-size: 15px;
@@ -1689,14 +1693,19 @@ img { max-width: 100%; height: auto; display: block; }
     .nav-links.active .nav-link {
         color: var(--white);
         font-size: 18px;
-        padding: 20px 28px;
+        padding: 22px 28px;
         text-align: left;
         border-bottom: 1px solid rgba(255,255,255,0.1);
+        min-height: 56px;
+        display: flex;
+        align-items: center;
     }
 
     .nav-links.active .nav-link:last-child { border-bottom: none; }
 
     .nav-links.active .nav-link::after { display: none; }
+
+    .nav-links.active .nav-contact-mobile { display: block; }
 
     .top-bar-right { display: none; }
     .top-bar-left { gap: 15px; font-size: 12px; }
