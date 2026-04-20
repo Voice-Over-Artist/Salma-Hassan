@@ -310,21 +310,37 @@ function initVideoCarousel() {
    Video Pause on Play
    =================================== */
 function initVideoPauseOnPlay() {
-    var wrappers = document.querySelectorAll('.video-wrapper');
-    wrappers.forEach(function (wrapper) {
-        wrapper.addEventListener('click', function () {
-            var clickedIframe = this.querySelector('iframe');
-            wrappers.forEach(function (other) {
-                var otherIframe = other.querySelector('iframe');
-                if (otherIframe && otherIframe !== clickedIframe) {
-                    otherIframe.contentWindow.postMessage(
-                        JSON.stringify({ event: 'command', func: 'pauseVideo', args: '' }),
-                        '*'
-                    );
+    var iframes = document.querySelectorAll('.video-wrapper iframe');
+    if (iframes.length === 0) return;
+
+    var players = [];
+
+    iframes.forEach(function (iframe, i) {
+        iframe.id = 'yt-player-' + i;
+    });
+
+    window.onYouTubeIframeAPIReady = function () {
+        iframes.forEach(function (iframe, i) {
+            var player = new YT.Player(iframe.id, {
+                events: {
+                    onStateChange: function (event) {
+                        if (event.data === YT.PlayerState.PLAYING) {
+                            players.forEach(function (p) {
+                                if (p !== player && typeof p.pauseVideo === 'function') {
+                                    p.pauseVideo();
+                                }
+                            });
+                        }
+                    }
                 }
             });
+            players.push(player);
         });
-    });
+    };
+
+    var tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    document.head.appendChild(tag);
 }
 
 /* ===================================
