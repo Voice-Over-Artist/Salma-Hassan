@@ -1082,6 +1082,11 @@ img { max-width: 100%; height: auto; display: block; }
     border: none;
 }
 
+.video-wrapper.tiktok-video iframe {
+    background: #000;
+    object-fit: cover;
+}
+
 .video-title {
     text-align: center;
     font-size: 14px;
