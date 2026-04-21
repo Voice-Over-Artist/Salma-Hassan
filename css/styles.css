@@ -1084,7 +1084,8 @@ img { max-width: 100%; height: auto; display: block; }
 
 .video-wrapper.tiktok-video iframe {
     background: #000;
-    object-fit: cover;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .video-title {
